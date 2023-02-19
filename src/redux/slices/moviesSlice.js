@@ -36,9 +36,6 @@ const getById = createAsyncThunk(
     }
 );
 
-
-
-
 const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
