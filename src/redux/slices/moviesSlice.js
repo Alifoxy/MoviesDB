@@ -4,7 +4,7 @@ import {getMovies} from "../../services";
 
 const initialState = {
     movies: [],
-    carForUpdate: null,
+    selectedMovie: null,
     errors: null,
     loading: null
 };
@@ -14,64 +14,43 @@ const getAll = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             await new Promise(resolve => setTimeout(() => resolve(), 2000))
-            const {data} = await carService.getAll();
+            const {data} = await getMovies.getAll();
             return data
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
         }
     }
 );
 
-const create = createAsyncThunk(
-    'carSlice/create',
-    async ({car}, thunkAPI) => {
-        try {
-            await carService.create(car);
-            thunkAPI.dispatch(getAll())
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
+const getById = createAsyncThunk(
+    "moviesSlice/getById",
+    async ({id},thunkAPI)=>{
+        try{
+            await getMovies.getById(id)
+            const {data} = await getMovies.getById(id);
+            return data
+        }catch (error){
+            return thunkAPI.rejectWithValue(error.response.data);
         }
 
     }
-)
+);
 
-const deleteById = createAsyncThunk(
-    'carSlice/deleteById',
-    async ({id}, thunkAPI) => {
-        try {
-            await carService.deleteById(id)
-            thunkAPI.dispatch(getAll())
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
-        }
-    }
-)
 
-const updateById = createAsyncThunk(
-    'carSlice/updateById',
-    async ({id, car}, thunkAPI) => {
-        try {
-            await carService.updateById(id, car);
-            thunkAPI.dispatch(getAll())
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
 
-        }
-    }
-)
 
-const carSlice = createSlice({
-    name: 'carSlice',
+const moviesSlice = createSlice({
+    name: 'moviesSlice',
     initialState,
     reducers: {
-        setCarForUpdate: (state, action) => {
-            state.carForUpdate = action.payload
+        set_selectedMovie: (state, action) => {
+            state.selectedMovie = action.payload
         }
     },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
-                state.cars = action.payload
+                state.movies = action.payload
                 state.loading = false
             })
             .addDefaultCase((state, action) => {
@@ -80,17 +59,15 @@ const carSlice = createSlice({
             })
 });
 
-const {reducer: carReducer, actions: {setCarForUpdate}} = carSlice;
+const {reducer: moviesReducer, actions: {set_selectedMovie}} = moviesSlice;
 
-const carActions = {
+const moviesActions = {
     getAll,
-    create,
-    deleteById,
-    setCarForUpdate,
-    updateById
+    getById,
+    set_selectedMovie
 }
 
 export {
-    carReducer,
-    carActions
+    moviesReducer,
+    moviesActions
 }

@@ -4,7 +4,7 @@ import {urls} from "../../configs/urls";
 
 const getMovies = {
     getAll: () => axiosRequest.get(urls.movies.movies),
-    create: (data) => axiosRequest.post(urls.movies.movies, data)
+    getById: (id) => axiosRequest.get(`${urls.movies.movies}/${id}`)
 }
 
 export {
