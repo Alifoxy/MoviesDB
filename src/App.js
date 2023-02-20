@@ -1,10 +1,11 @@
 import './App.css';
-import MainLayout from "./layouts/MainLayout";
+import {Movies} from "./components/MoviesList/MoviesList";
+import React from "react";
 
 function App() {
   return (
     <div className="App">
-        <MainLayout/>
+        <Movies/>
     </div>
   );
 }
