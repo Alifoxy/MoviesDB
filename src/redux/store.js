@@ -10,6 +10,4 @@ const setupStore = () => configureStore({
     reducer: rootReducer
 })
 
-export {
-    setupStore
-}
+export default setupStore
