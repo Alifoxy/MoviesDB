@@ -8,8 +8,8 @@ const App = () => {
     return(
         <Routes>
             <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<Navigate to={'cars'}/>}/>
-                    <Route path={'cars'} element={<MoviesPage/>}/>
+                <Route index element={<Navigate to={'movies'}/>}/>
+                    <Route path={'movies'} element={<MoviesPage/>}/>
 
             </Route>
         </Routes>
