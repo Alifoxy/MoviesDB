@@ -1,22 +1,22 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
-import {carActions} from "../../redux";
-import {Car} from "../Car/Car";
+import {moviesActions} from "../../redux";
+import {Movie} from "./MoviesListCard";
 
-const Cars = () => {
-    const {cars} = useSelector(state => state.cars);
+const Movies = () => {
+    const {movies} = useSelector(state => state.movies);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(carActions.getAll())
+        dispatch(moviesActions.getAll())
     }, [dispatch])
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car}/>)}
+            {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
         </div>
     );
 };
 
-export {Cars};
+export {Movies};
