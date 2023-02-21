@@ -3,7 +3,7 @@ const Header = () => {
     return (
         <div>
             <div className={css.Header}>
-                <h3>This is header</h3>
+                <a>This is header</a>
             </div>
         </div>
     );
