@@ -1,12 +1,12 @@
 .Header{
     display: flex;
     height: 60px;
-    background-color: hotpink;
+    background-color: dimgray;
     justify-content: space-around;
     align-items: center;
-    border-color: gold;
+    border-color: mediumspringgreen;
     border-width: 0 0 6px 0;
-    border-style: dotted;
+    border-style: dashed;
 }
 .Header a{
     font-size: xx-large;
