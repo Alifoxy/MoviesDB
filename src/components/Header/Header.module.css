@@ -1,0 +1,16 @@
+.Header{
+    display: flex;
+    height: 60px;
+    background-color: hotpink;
+    justify-content: space-around;
+    align-items: center;
+    border-color: gold;
+    border-width: 0 0 6px 0;
+    border-style: dotted;
+}
+.Header a{
+    font-size: xx-large;
+    font-family: "Cooper Black",sans-serif;
+    color: whitesmoke;
+    text-decoration: none;
+}
