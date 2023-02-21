@@ -2,7 +2,7 @@ import axios from "axios";
 
 import {baseURL} from "../../configs/urls";
 
-import {authService} from "./authService";
+import {authService} from "../authService/authService";
 import {createBrowserHistory} from "history";
 
 const history = createBrowserHistory();

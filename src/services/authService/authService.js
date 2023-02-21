@@ -1,5 +1,5 @@
-import {apiService} from "../axiosService";
-import {urls} from "../configs";
+import {apiService} from "../axiosService/axiosConfig";
+import {urls} from "../../configs/urls";
 
 const accessTokenKey = 'access'
 const refreshTokenKey = 'refresh'
