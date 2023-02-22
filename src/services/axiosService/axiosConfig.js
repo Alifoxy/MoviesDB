@@ -10,7 +10,7 @@ const apiService = axios.create({baseURL});
 
 apiService.interceptors.request.use((config) => {
     if (authService.isAuthenticated()) {
-        config.headers.Authorization = `Bearer cb1f2b7412e28a08ff00da197875b432`
+        config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYjFmMmI3NDEyZTI4YTA4ZmYwMGRhMTk3ODc1YjQzMiIsInN1YiI6IjYzZWY2MTdlY2RkYmJjMDA4YzIwYjgwMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gOeNaSJT0F9oN2v1paJGgct0ByZYRNMura43C_XS_ho`
     }
     return config
 })
