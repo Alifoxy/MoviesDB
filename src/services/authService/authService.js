@@ -3,6 +3,7 @@ import {urls} from "../../configs/urls";
 
 const accessTokenKey = 'access'
 const refreshTokenKey = 'refresh'
+
 const authService = {
     login: async function (cred) {
         const response = await apiService.post(urls.auth.login, cred);
