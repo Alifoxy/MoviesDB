@@ -1,4 +1,4 @@
-const baseURL ="https://api.themoviedb.org/3/movie/now_playing?api_key=cb1f2b7412e28a08ff00da197875b432"
+const baseURL =`https://api.themoviedb.org/3/movie/now_playing?api_key=cb1f2b7412e28a08ff00da197875b432&page=default`
 
 const movies = '/movies'
 
