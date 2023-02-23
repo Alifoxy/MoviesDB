@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {Provider} from "react-redux";
 import {unstable_HistoryRouter as BrowserRouter} from "react-router-dom";
-
+import {history} from "./services";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -13,7 +13,7 @@ const store = setupStore();
 root.render(
   <React.StrictMode>
       <Provider store={store}>
-          <BrowserRouter>
+          <BrowserRouter history={history}>
               <App/>
           </BrowserRouter>
       </Provider>

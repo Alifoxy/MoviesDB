@@ -2,6 +2,10 @@ import axios from "axios";
 
 import {baseURL} from "../../configs/urls";
 
+import {createBrowserHistory} from "history";
+
+const history = createBrowserHistory();
+
 const apiService = axios.create({baseURL});
 
 apiService.interceptors.request.use((config) => {
@@ -13,4 +17,5 @@ apiService.interceptors.request.use((config) => {
 
 export {
     apiService,
+    history
 }
