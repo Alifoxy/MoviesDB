@@ -9,7 +9,6 @@ const Movies = () => {
     const {movies, prev, next} = useSelector(state => state.movies);
     const dispatch = useDispatch();
     const [query, setQuery] = useSearchParams({page:'1'});
-
     useEffect(() => {
         dispatch(moviesActions.getAll({page:query.get('page')}))
     }, [dispatch, query])
