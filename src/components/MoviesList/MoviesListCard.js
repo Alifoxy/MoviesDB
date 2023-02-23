@@ -12,7 +12,7 @@ const Movie = ({movie}) => {
             <div>id: {id}</div>
             <div>title: {title}</div>
             <div>status: {status}</div>
-            <div>genres: {genres.name}</div>
+            <div>genres: {genres}</div>
             <button onClick={()=>dispatch(moviesActions.set_selectedMovie(movie))}>select</button>
 
         </div>
