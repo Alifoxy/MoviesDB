@@ -1,8 +1,8 @@
 import {Navigate, Route, Routes} from "react-router-dom";
 
-import {AuthRequireLayout, MainLayout} from "./layouts";
+import {MainLayout} from "./layouts";
 
-import {MoviesPage,RegisterPage,LoginPage} from "./containers";
+import {MoviesPage} from "./containers";
 
 const App = () => {
     return(
@@ -10,12 +10,11 @@ const App = () => {
             <Route path={'/'} element={<MainLayout/>}>
                 <Route index element={<Navigate to={'movies'}/>}/>
 
-                <Route element={<AuthRequireLayout/>}>
+                <Route element={<MainLayout/>}>
                     <Route path={'movies'} element={<MoviesPage/>}/>
                 </Route>
 
-                <Route path={'login'} element={<LoginPage/>}/>
-                <Route path={'register'} element={<RegisterPage/>}/>
+
 
             </Route>
         </Routes>
