@@ -1,21 +1,18 @@
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
 import {MainLayout} from "./layouts";
 
+import {RouterEndpoints} from "./services/routes";
+
 import {MoviesPage} from "./containers";
+import {NotFoundPage} from "./containers";
 
 const App = () => {
     return(
         <Routes>
-            <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<Navigate to={'movies'}/>}/>
-
-                <Route element={<MainLayout/>}>
-                    <Route path={'movies'} element={<MoviesPage/>}/>
-                </Route>
-
-
-
+            <Route path={RouterEndpoints.index} element={<MainLayout/>}>
+                <Route path={RouterEndpoints.movies} index element={<MoviesPage/>}/>
+                <Route path={'*'} element={<NotFoundPage/>}/>
             </Route>
         </Routes>
     )
