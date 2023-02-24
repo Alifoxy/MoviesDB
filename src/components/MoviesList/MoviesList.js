@@ -19,7 +19,7 @@ const Movies = () => {
                 <button disabled={!prev} onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
                 <button disabled={!next} onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
             </div>
-            {{movies}.map(movie => <Movie key={movie.id} movie={movie}/>)}
+            {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
         </div>
     );
 };
