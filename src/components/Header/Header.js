@@ -1,11 +1,14 @@
-import css from './Header.module.css';
+import { NavLink } from "react-router-dom";
+
+import '../../layouts/style.css';
+
 const Header = () => {
     return (
-        <div>
-            <div className={css.Header}>
-                <a>This is header</a>
+            <div className ='header'>
+                <NavLink to={''}>Home</NavLink>
+                <NavLink to={'movies'}>Movies</NavLink>
             </div>
-        </div>
+
     );
 };
 

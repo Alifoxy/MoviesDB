@@ -36,18 +36,6 @@ const create = createAsyncThunk(
     }
 );
 
-const getById = createAsyncThunk(
-    "moviesSlice/getById",
-    async ({id},{rejectWithValue})=>{
-        try{
-            const {data} = await getMovies.getById(id);
-            return data
-        }catch (error){
-            rejectWithValue(error.response.data);
-        }
-
-    }
-);
 
 const moviesSlice = createSlice({
     name: 'moviesSlice',
@@ -75,7 +63,6 @@ const {reducer: moviesReducer, actions: {set_selectedMovie}} = moviesSlice;
 
 const moviesActions = {
     getAll,
-    getById,
     create,
     set_selectedMovie
 }
