@@ -2,14 +2,23 @@ import {apiService} from "../axiosService/axiosConfig";
 
 import {urls} from "../../configs/urls";
 
-import {baseURL} from "../../configs/urls";
-
 const getMovies = {
-    getAll: (page = 1,results) => apiService.get(baseURL+urls.movies, {params:{page:page, results:results}}),
-    create: (data) => apiService.post(baseURL+urls.movies, data),
+    getAll: (page = 1) => apiService.get(urls.movies, {params:{page:page}}),
+    create: (data) => apiService.post(urls.movies, data),
+}
 
+const getPosters = {
+    getAll: () => apiService.get(urls.images.images),
+    getById: (id) => apiService.get(urls.images.byId(id)),
+}
+
+const getDetails = {
+    getAll: () => apiService.get(urls.details.details),
+    getById: (id) => apiService.get(urls.details.byId(id)),
 }
 
 export {
-    getMovies
+    getMovies,
+    getPosters,
+    getDetails
 }

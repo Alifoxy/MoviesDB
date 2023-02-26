@@ -1,10 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import {getMovies} from "../../services";
+import {getDetails, getMovies, getPosters} from "../../../services";
 
 const initialState = {
     movies: [],
-    page:null,
+    details:null,
+    images:null,
+    page: null,
     selectedMovie: null,
     errors: null,
     loading: null
@@ -15,8 +17,8 @@ const getAll = createAsyncThunk(
     async ({page}, thunkAPI) => {
         try {
             await new Promise(resolve => setTimeout(() => resolve(), 2000))
-            const {data:{results}} = await getMovies.getAll(page);
-            return results
+            const {data} = await getMovies.getAll(page);
+            return data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data)
         }
@@ -36,6 +38,29 @@ const create = createAsyncThunk(
     }
 );
 
+const getImgById = createAsyncThunk(
+    'moviesSlice/getImgById',
+    async ({id}, thunkAPI) => {
+        try {
+            await getPosters.getById(id)
+            thunkAPI.dispatch(getAll(id))
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+);
+
+const getDetById = createAsyncThunk(
+    'moviesSlice/getDetById',
+    async ({id}, thunkAPI) => {
+        try {
+            await getDetails.getById(id)
+            thunkAPI.dispatch(getAll(id))
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+);
 
 const moviesSlice = createSlice({
     name: 'moviesSlice',
@@ -48,9 +73,19 @@ const moviesSlice = createSlice({
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
-                const {page, results} = action.payload;
+                const {results,page} = action.payload;
                 state.movies = results
                 state.page = page
+                state.loading = false
+            })
+            .addCase(getDetById.fulfilled, (state, action) => {
+                const {details} = action.payload;
+                state.details = details
+                state.loading = false
+            })
+            .addCase(getImgById.fulfilled, (state, action) => {
+                const {posters} = action.payload;
+                state.images = posters
                 state.loading = false
             })
             .addDefaultCase((state, action) => {
@@ -59,11 +94,14 @@ const moviesSlice = createSlice({
             })
 });
 
+
 const {reducer: moviesReducer, actions: {set_selectedMovie}} = moviesSlice;
 
 const moviesActions = {
     getAll,
     create,
+    getImgById,
+    getDetById,
     set_selectedMovie
 }
 

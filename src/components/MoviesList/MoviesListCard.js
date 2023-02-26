@@ -1,19 +1,19 @@
-import {useDispatch} from "react-redux";
+// import {useDispatch} from "react-redux";
 
 import {moviesActions} from "../../redux";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 const Movie = ({movie}) => {
-    const {id, title, vote_average} = movie;
-
+    const {title, vote_average} = movie;
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     return (
         <div>
-            <div>id: {id}</div>
             <div>title: {title}</div>
             <div>vote: {vote_average}</div>
-            <button onClick={()=>dispatch(moviesActions.set_selectedMovie(movie))}>select</button>
-
+            <button onClick={()=>navigate(movie.id.toString(), dispatch(moviesActions.set_selectedMovie(movie)))}>Details</button>
         </div>
     );
 };

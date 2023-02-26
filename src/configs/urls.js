@@ -1,12 +1,20 @@
 const baseURL ="https://api.themoviedb.org/3"
 
-const API_KEY = 'cb1f2b7412e28a08ff00da197875b432'
+const images = '/images'
+const details = '/details'
 
 const urls = {
-    movies:`/discover/movie/?page=1&&api_key=${API_KEY}`,
+    movies:'/discover/movie/?page=',
     movie:'/movie',
     genres:'/genre/movie/list',
-
+    images:{
+        images,
+        byId:(id)=>`${urls.movie}/${id}/images`
+    },
+    details:{
+        details,
+        byId:(id)=>`${urls.movie}/${id}`
+    }
 }
 
 
