@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
 
-import {Movies} from "../../components/MoviesList/MoviesList";
+import {Movies} from "../../components";
 
 const MoviesPage = () => {
     const {loading} = useSelector(state => state.movies);

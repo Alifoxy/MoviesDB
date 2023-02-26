@@ -8,6 +8,8 @@ import {moviesActions} from "../../redux";
 
 import {Movie} from "./MoviesListCard";
 
+import './MoviesListCardStyle.css';
+
 const Movies = () => {
     const {movies} = useSelector(state => state.movies);
     const dispatch = useDispatch();
@@ -20,7 +22,7 @@ const Movies = () => {
 
     return (
         <div>
-            <div>
+            <div className ='movies_div'>
                 {movies&&movies.map(movie => <Movie key={movie.id} movie={movie}/>)}}
             </div>
             <div>

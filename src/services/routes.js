@@ -1,4 +1,5 @@
 export const RouterEndpoints = {
     index: '/',
-    movies:'movies'
+    movies:'movies',
+    details:'details'
 }

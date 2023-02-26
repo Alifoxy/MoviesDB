@@ -1,0 +1,21 @@
+.user{
+    font-family: 'Fugaz One',sans-serif ;
+    font-size: large;
+    color: #008181;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(115,244,236,1) 0%, rgba(145,253,255,1) 38%, rgba(225,194,255,1) 91%);
+    border-radius:40px;
+    border-color: #008181;
+    border-width: 3px;
+    border-style: solid;
+    width:220px;
+    height: 70px;
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+
+}

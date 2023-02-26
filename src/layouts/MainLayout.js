@@ -25,7 +25,7 @@ const MainLayout = () => {
                 <div className="switch_div" id={theme}>
                     <div className="switch" >
                         <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-                        <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+                        <ReactSwitch  onChange={toggleTheme} checked={theme === "dark"}  />
                     </div>
                 </div>
                 <div className="main_div" id={theme}>

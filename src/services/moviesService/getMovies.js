@@ -8,7 +8,7 @@ const getMovies = {
 }
 
 const getPosters = {
-    getAll: () => apiService.get(urls.images.images),
+    getAll: (posters) => apiService.get(urls.images.images,{params:{posters:posters}}),
     getById: (id) => apiService.get(urls.images.byId(id)),
 }
 

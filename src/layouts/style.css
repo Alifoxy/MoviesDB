@@ -1,20 +1,15 @@
-
-.header{
+.main_div{
     display: flex;
-    height: 100px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.header a{
-    font-size: xx-large;
-    font-family: "Cooper Black",sans-serif;
-    color: whitesmoke;
-    text-decoration: none;
+    width: auto;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-evenly;
+    align-items:center;
 }
 
 #light.header_div {
-    background-color: lightsteelblue;
+    background-color: powderblue;
     border-color: lightcyan;
     border-width: 10px 0 10px 0;
     border-style: dashed;
@@ -28,7 +23,7 @@
 }
 
 #light.main_div {
-background: linear-gradient(0deg, rgba(238,255,255,0.88) 38%, rgba(189,235,255,0) 100%);
+    background: linear-gradient(0deg, rgba(238,255,255,0.88) 38%, rgba(189,235,255,0) 100%);
 
 
 }
@@ -46,9 +41,11 @@ background: linear-gradient(0deg, rgba(238,255,255,0.88) 38%, rgba(189,235,255,0
     align-items: center;
 }
 
+
 .switch label {
     margin: 10px;
 }
+
 
 #light .switch label {
     color: steelblue;

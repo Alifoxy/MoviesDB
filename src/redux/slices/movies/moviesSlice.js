@@ -43,7 +43,7 @@ const getImgById = createAsyncThunk(
     async ({id}, thunkAPI) => {
         try {
             await getPosters.getById(id)
-            thunkAPI.dispatch(getAll(id))
+            thunkAPI.dispatch(getAll({posters:'posters'}))
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
         }

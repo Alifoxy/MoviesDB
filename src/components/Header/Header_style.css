@@ -1,0 +1,13 @@
+.header{
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header a{
+    font-size: xx-large;
+    font-family: "Sigmar One",sans-serif;
+    color: coral;
+    text-decoration: none;
+}
