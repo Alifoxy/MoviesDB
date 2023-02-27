@@ -8,6 +8,7 @@
     margin: 10px;
     padding: 15px 0 15px 0;
 }
+
 .movie_card{
     background-color: darkgrey;
     font-size: 25px;
@@ -16,6 +17,7 @@
     margin: 10px;
     padding: 10px;
 }
+
 .movies_div{
     display: flex;
     flex-wrap: wrap;
@@ -24,4 +26,17 @@
     height: auto;
     justify-content: space-around;
     align-items:center;
+}
+
+.det_button{
+    width: 260px;
+    height: 45px;
+    font-family: 'Fugaz One',sans-serif ;
+    font-size: large;
+    color: #008181;
+    background: linear-gradient(90deg, rgba(115,244,236,1) 0%, rgba(145,253,255,1) 38%, rgba(225,194,255,1) 91%);
+    border-radius:40px;
+    border-color: #008181;
+    border-width: 3px;
+    border-style: solid;
 }

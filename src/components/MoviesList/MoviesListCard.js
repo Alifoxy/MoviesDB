@@ -1,27 +1,23 @@
-// import {useDispatch} from "react-redux";
-
-import {moviesActions} from "../../redux";
-
-import {useNavigate} from "react-router-dom";
-
 import {useDispatch} from "react-redux";
-
-import {getPosters} from "../../services";
-
+import {moviesActions} from "../../redux";
+import {useNavigate} from "react-router-dom";
 import './MoviesListCardStyle.css'
+import StarRatings from "react-star-ratings/build/star-ratings";
 
 const Movie = ({movie}) => {
-    const {title, vote_average} = movie;
+    const {id, title, vote_average} = movie;
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
 
     return (
         <div className='movie_card_base'>
             <div className='movie_card'>
-                <div>title: {title}</div>
-                <img src={`${getPosters.getById(movie.id)}/${movie.posters}`} alt={title}/>
-                <div>vote: {vote_average}</div>
-                <button onClick={()=>navigate(dispatch(moviesActions.set_selectedMovie(movie)))}>Details</button>
+                <div>{id}</div>
+                <div>{title}</div>
+                <div>{vote_average}</div>
+                <StarRatings name="half-rating-read" defaultValue={vote_average} precision={0.1} readOnly className='ratings' />
+                <button onClick={()=> navigate(dispatch(moviesActions.set_selectedMovie({movie})))} className='det_button'>View more...</button>
             </div>
         </div>
 

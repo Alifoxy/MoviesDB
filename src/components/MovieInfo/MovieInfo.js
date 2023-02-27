@@ -1,11 +1,11 @@
 import {useEffect} from "react";
 
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {moviesActions} from "../../redux";
 
 const MovieDetails = ({movie}) => {
-
+    const {details} = useSelector(state => state.details);
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -13,13 +13,14 @@ const MovieDetails = ({movie}) => {
     }, [dispatch,movie.id])
 
 
+
     return (
         <div>
-            {movie &&
-                <>
-                    <div>title: {movie.title}</div>
-                </>
-            }
+            {details.map(item => (
+                <li key={item.id}>
+                    {item.title}
+                </li>
+            ))}
         </div>
     );
 };

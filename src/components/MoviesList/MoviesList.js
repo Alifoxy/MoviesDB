@@ -23,7 +23,7 @@ const Movies = () => {
     return (
         <div>
             <div className ='movies_div'>
-                {movies&&movies.map(movie => <Movie key={movie.id} movie={movie}/>)}}
+                {movies&&movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
             </div>
             <div>
                 <button  onClick={() => setQuery(query => ({page: +query.get('page') - 1}))}>prev</button>

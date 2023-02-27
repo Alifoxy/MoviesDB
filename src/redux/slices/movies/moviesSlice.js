@@ -1,11 +1,11 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import {getDetails, getMovies, getPosters} from "../../../services";
+import {getMovies} from "../../../services";
 
 const initialState = {
     movies: [],
     details:null,
-    images:null,
+    images:[],
     page: null,
     selectedMovie: null,
     errors: null,
@@ -42,10 +42,10 @@ const getImgById = createAsyncThunk(
     'moviesSlice/getImgById',
     async ({id}, thunkAPI) => {
         try {
-            await getPosters.getById(id)
-            thunkAPI.dispatch(getAll({posters:'posters'}))
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
+            await getMovies.getImgById(id)
+            thunkAPI.dispatch(getAll(id))
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
         }
     }
 );
@@ -54,10 +54,10 @@ const getDetById = createAsyncThunk(
     'moviesSlice/getDetById',
     async ({id}, thunkAPI) => {
         try {
-            await getDetails.getById(id)
+            await getMovies.getDetById(id)
             thunkAPI.dispatch(getAll(id))
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
         }
     }
 );
@@ -73,19 +73,10 @@ const moviesSlice = createSlice({
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
-                const {results,page} = action.payload;
+                const {results,page,posters} = action.payload;
+                state.images = posters
                 state.movies = results
                 state.page = page
-                state.loading = false
-            })
-            .addCase(getDetById.fulfilled, (state, action) => {
-                const {details} = action.payload;
-                state.details = details
-                state.loading = false
-            })
-            .addCase(getImgById.fulfilled, (state, action) => {
-                const {posters} = action.payload;
-                state.images = posters
                 state.loading = false
             })
             .addDefaultCase((state, action) => {
