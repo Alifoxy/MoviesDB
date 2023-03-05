@@ -42,8 +42,8 @@ const getImgById = createAsyncThunk(
     'moviesSlice/getImgById',
     async ({id}, thunkAPI) => {
         try {
-            await getMovies.getImgById(id)
-            thunkAPI.dispatch(getAll(id))
+            await getMovies.getImgById(id);
+            thunkAPI.dispatch(getAll)
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data)
         }
