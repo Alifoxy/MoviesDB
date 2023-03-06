@@ -16,8 +16,8 @@ const Movie = ({movie}) => {
                 <div>{id}</div>
                 <div>{title}</div>
                 <div>{vote_average}</div>
-                <img src={``}/>
-                <StarRatings name="half-rating-read" defaultValue={vote_average} precision={0.1} readOnly className='ratings' />
+                <img src={moviesActions)}/>
+                <StarRatings name="half-rating-read" defaultValue={`${vote_average}`} precision={0.1} readOnly className='ratings' />
                 <button onClick={()=> navigate(dispatch(moviesActions.set_selectedMovie({movie})))} className='det_button'>View more...</button>
             </div>
         </div>
